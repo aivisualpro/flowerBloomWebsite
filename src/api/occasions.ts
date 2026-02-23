@@ -1,7 +1,6 @@
 // client/src/api/products.js
 import axios from "axios";
-
-const BASE_URL = 'https://crunchy-cookies-dashboard-wine.vercel.app/api/v1';
+import { BASE_URL } from "./config";
 
 // 1) SubCategory: Flower in vases
 export const getOccasions = async (params?: any) => {

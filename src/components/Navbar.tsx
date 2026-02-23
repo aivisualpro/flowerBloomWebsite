@@ -347,8 +347,13 @@ export default function Navbar() {
           </div>
 
           {/* Center logo */}
-          <Link href={`/`} className="lg:me-0 md:me-16">
-            <h1 className="text-[1.2rem] md:text-[1.8rem] lg:text-[1.4rem] xl:text-3xl font-bold text-primary uppercase tracking-wide">
+          <Link href={`/`} className="lg:me-0 md:me-16 flex items-center gap-2">
+            <img
+              src="/images/flower-bloom-logo.png"
+              alt="Flower Bloom"
+              className="h-10 md:h-12 w-auto object-contain"
+            />
+            <h1 className="text-[1rem] md:text-[1.4rem] lg:text-[1.2rem] xl:text-2xl font-bold text-primary uppercase tracking-wide">
               {t("logo")}
             </h1>
           </Link>

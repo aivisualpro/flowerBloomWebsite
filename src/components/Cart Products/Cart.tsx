@@ -30,6 +30,7 @@ import { checkCoupon } from "../../api/coupon";
 import { createOrder, getOnGoingOrderByUser } from "../../api/order";
 
 import ToastNotification from "../../components/ToastNotification"; // 👈 toast component
+import { BASE_URL } from "../../api/config";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_VITE_STRIPE_PUBLISHED_KEY || "");
 
@@ -634,7 +635,7 @@ export default function Cart() {
 
       // 3) Backend se checkout session banao
       const resp = await fetch(
-        `https://crunchy-cookies-dashboard-wine.vercel.app/api/v1/create-checkout-session`,
+        `${BASE_URL}/create-checkout-session`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

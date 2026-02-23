@@ -6,8 +6,8 @@ import ScrollToTopButton from "../components/ScrollToTop";
 import Accordion from "../components/Accordion";
 
 const faqs = [
-  { q: "What is Crunchy Cookies", a: "Crunchy Cookies is your go-to destination for curated gifts, sweets, and celebration bundles designed for every occasion." },
-  { q: "What does Crunchy Cookies do?", a: "We help you discover, customize, and deliver thoughtful gifts—bundles, balloons, cakes, flowers, and more—right to your loved ones." },
+  { q: "What is Flower Bloom", a: "Flower Bloom is your go-to destination for curated gifts, sweets, and celebration bundles designed for every occasion." },
+  { q: "What does Flower Bloom do?", a: "We help you discover, customize, and deliver thoughtful gifts—bundles, balloons, cakes, flowers, and more—right to your loved ones." },
   { q: "Do you have Debit Card / Credit Cards services?", a: "Yes. We support major debit/credit cards and secure online payments." },
   { q: "Can I place an order without creating an account", a: "You can browse freely, but an account helps track orders, save addresses, and speed up checkout." },
   { q: "If I placed an order, how long does it take to receive the order?", a: "Delivery times depend on location and product type. Most standard orders arrive within 1–3 business days." },
@@ -19,7 +19,7 @@ const faqs = [
   { q: "Can I order Cakes and balloons only?", a: "Yes, individual items are available—mix & match as you like." },
   { q: "I forgot to add an item to my order, what do I do?", a: "Contact support ASAP. If the order hasn’t been prepared, we’ll help add it." },
   { q: "How long does the online payment refund process take?", a: "Refunds typically take 5–7 business days depending on your bank." },
-  { q: "How can I contact Crunchy Cookies?", a: "Email support@crunchycookies.example or use the Contact page chat." },
+  { q: "How can I contact Flower Bloom?", a: "Email support@flowerbloom.com or use the Contact page chat." },
 ];
 
 const FAQPage = () => {

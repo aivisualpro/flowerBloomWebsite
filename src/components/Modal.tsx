@@ -89,7 +89,7 @@ export default function Modal({ itemsOpen, closeItems, activeOrder, isAr }: Moda
       >
         {/* Title */}
         <h2 className="text-center text-2xl font-extrabold tracking-wider text-[#14a3a7]">
-          {t("CRUNCHY COOKIES", "کرنچی کوکیز")}
+          {t("FLOWER BLOOM", "فلاور بلوم")}
         </h2>
 
         {/* Sender / Receiver */}

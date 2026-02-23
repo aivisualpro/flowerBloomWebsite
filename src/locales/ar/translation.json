@@ -1,6 +1,6 @@
 {
   "dir": "rtl",
-  "logo": "كرنشي كوكيز",
+  "logo": "فلاور بلوم",
   "seeMore": "شاهد المزيد",
   "loadMore": "تحميل المزيد",
   "addToCart": "أضف إلى السلة",
@@ -21,7 +21,7 @@
 
   "footer": {
     "explore": {
-      "title": "استكشف كرنشي كوكيز",
+      "title": "استكشف فلاور بلوم",
       "links": [
         { "label": "زهور", "href": "/filters/subCategory/flowers-in-vases" },
         { "label": "كيك", "href": "/filters/subCategory/cakes" },
@@ -46,6 +46,6 @@
         { "label": "الأسئلة الشائعة", "href": "/faq" }
       ]
     },
-    "copyright": "جميع الحقوق محفوظة © 2025 كرنشي كوكيز"
+    "copyright": "جميع الحقوق محفوظة © 2025 فلاور بلوم"
   }
 }

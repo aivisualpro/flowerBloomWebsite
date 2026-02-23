@@ -6,7 +6,7 @@ import ScrollToTopButton from "../components/ScrollToTop";
 import Accordion from "../components/Accordion";
 
 const faqs = [
-  { q: "Crunchy Cookies Data Privacy and Cookie Policy", a: "This policy explains how Crunchy Cookies collects, uses, and protects your personal information, along with our use of cookies and related technologies." },
+  { q: "Flower Bloom Data Privacy and Cookie Policy", a: "This policy explains how Flower Bloom collects, uses, and protects your personal information, along with our use of cookies and related technologies." },
   { q: "Purpose of this privacy policy", a: "The purpose of this policy is to inform users how we collect, use, store, and safeguard personal data in compliance with data protection laws." },
   { q: "The data we collect about you", a: "We collect information such as your name, email, address, phone number, payment details, and browsing activity to provide and improve our services." },
   { q: "How is your personal data collected?", a: "Data is collected directly from you during registration, order placement, or communication, and automatically via cookies and analytics tools." },

@@ -52,7 +52,7 @@ export default function AboutBanner() {
               {/* Glassy blurb card */}
               <div className="max-w-2xl rounded-2xl border border-primary bg-primary/15 p-5 sm:p-6">
                 <p className="text-white font-semibold leading-relaxed">
-                  {langClass ? "في شركة كرانشي كوكيز بيزنس، نؤمن بأن الهدية أكثر من مجرد لفتة، بل هي فرصة لترك انطباع دائم." : "At Crunchy Cookies Business, we believe gifting is more than a gesture—it's a chance to make a lasting impression."}
+                  {langClass ? "في فلاور بلوم، نؤمن بأن الهدية أكثر من مجرد لفتة، بل هي فرصة لترك انطباع دائم." : "At Flower Bloom, we believe gifting is more than a gesture—it's a chance to make a lasting impression."}
                 </p>
                 <p className="mt-4 text-white text-sm leading-6">
                   {langClass ? "منذ عام ٢٠١٧، تُمكّن فلاورد العلامات التجارية في جميع أنحاء منطقة الشرق الأوسط وشمال إفريقيا من تنسيق الزهور وهدايا الشركات عالية الجودة. نجمع بين التوريد العالمي والحرفية الدقيقة لمساعدتك على الارتقاء بكل لحظة عمل، بدءًا من تقدير العملاء ووصولًا إلى تكريم الموظفين، وما إلى ذلك." : "Since 2017, Floward has empowered brands across the MENAregion with high‑quality floral arrangements and corporategifts. We combine global sourcing with meticulouscraftsmanship to help you elevate every business moment—fromclient appreciation to employee recognition and beyond."}

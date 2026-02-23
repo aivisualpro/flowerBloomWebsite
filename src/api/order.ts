@@ -1,6 +1,5 @@
 import axios from "axios"
-
-const BASE_URL = 'https://crunchy-cookies-dashboard-wine.vercel.app/api/v1';
+import { BASE_URL } from "./config";
 
 export const getOnGoingOrderByUser = async (userId: string) => {
     try {

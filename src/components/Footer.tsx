@@ -41,9 +41,16 @@ const Footer = () => {
         <div className="lg:flex justify-between gap-8">
           {/* Brand + controls */}
           <div className="lg:w-[35%] flex lg:flex-col justify-between">
-            <h1 className={`text-primary ${isArabic ? "lg:text-4xl xl:text-5xl 2xl:text-6xl" : "lg:text-[1.5rem] xl:text-4xl 2xl:text-4xl"}`}>
-              {t("logo")}
-            </h1>
+            <div className="flex items-center gap-3">
+              <img
+                src="/images/flower-bloom-logo.png"
+                alt="Flower Bloom"
+                className="h-12 md:h-14 w-auto object-contain"
+              />
+              <h1 className={`text-primary ${isArabic ? "lg:text-4xl xl:text-5xl 2xl:text-6xl" : "lg:text-[1.5rem] xl:text-4xl 2xl:text-4xl"}`}>
+                {t("logo")}
+              </h1>
+            </div>
 
             <div className="flex items-center gap-4">
               <button

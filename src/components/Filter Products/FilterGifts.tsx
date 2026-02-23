@@ -20,7 +20,7 @@ import { useParams, useSearchParams, useRouter } from "next/navigation";
 import { ClipLoader } from "react-spinners";
 
 /* ==================== CONFIG ==================== */
-const API_BASE = 'https://crunchy-cookies-dashboard-wine.vercel.app/api/v1';
+import { BASE_URL as API_BASE } from "@/api/config";
 const PAGE_SIZE = 15;
 
 /* ==================== HELPERS ==================== */

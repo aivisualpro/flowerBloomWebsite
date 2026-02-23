@@ -35,8 +35,8 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Crunchy Cookies",
-  description: "Delicious cookies for everyone",
+  title: "Flower Bloom",
+  description: "Premium Flowers & Gifts for every occasion",
 };
 
 export default function RootLayout({

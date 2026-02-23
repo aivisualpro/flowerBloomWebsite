@@ -1,6 +1,6 @@
 {
   "dir": "ltr",
-  "logo": "CRUNCHY COOKIES",
+  "logo": "FLOWER BLOOM",
   "seeMore": "See more",
   "loadMore": "Load more",
   "addToCart": "Add to cart",
@@ -21,7 +21,7 @@
 
   "footer": {
     "explore": {
-      "title": "Explore Crunchy Cookies",
+      "title": "Explore Flower Bloom",
       "links": [
         { "label": "Flowers", "href": "/filters/subCategory/flowers-in-vases" },
         { "label": "Cakes", "href": "/filters/subCategory/cakes" },
@@ -46,6 +46,6 @@
         { "label": "FAQ's", "href": "/faq" }
       ]
     },
-    "copyright": "All Rights Reserved © 2025 Crunchy Cookies"
+    "copyright": "All Rights Reserved © 2025 Flower Bloom"
   }
 }

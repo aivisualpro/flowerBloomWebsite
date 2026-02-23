@@ -48,8 +48,8 @@ export default function Clients() {
             <div className="lg:w-[50%]">
               <p className="text-justify lg:text-xs xl:text-[13.5px] leading-6 text-black">
                 {langClass
-                  ? "في كرانشي كوكيز بيزنس، عملاؤنا هم محور كل ما نقوم به. من الشركات العالمية إلى الشركات الرائدة إقليميًا، تعاونّا مع علامات تجارية تُقدّر الجودة والإبداع والتواصل الهادف. يعكس كل تعاون التزامنا المشترك بالتميز في مجال هدايا الشركات وتجارب الزهور في منطقة الشرق الأوسط وشمال أفريقيا."
-                  : " At Crunchy Cookies Business, our clients are at the heart ofeverything we do. From global enterprises to regional leaders,we've partnered with brands that value quality, creativity, andmeaningful connections. Every collaboration reflects our sharedcommitment to excellence in corporate gifting and floralexperiences across the MENA region."}
+                  ? "في فلاور بلوم، عملاؤنا هم محور كل ما نقوم به. من الشركات العالمية إلى الشركات الرائدة إقليميًا، تعاونّا مع علامات تجارية تُقدّر الجودة والإبداع والتواصل الهادف. يعكس كل تعاون التزامنا المشترك بالتميز في مجال هدايا الشركات وتجارب الزهور في منطقة الشرق الأوسط وشمال أفريقيا."
+                  : " At Flower Bloom, our clients are at the heart of everything we do. From global enterprises to regional leaders, we've partnered with brands that value quality, creativity, and meaningful connections. Every collaboration reflects our shared commitment to excellence in corporate gifting and floral experiences across the MENA region."}
               </p>
 
               <div className="mt-6 grid lg:grid-cols-5 items-center gap-3">
