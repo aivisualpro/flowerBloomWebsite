@@ -107,13 +107,17 @@ export default function GiftMomentsCarousel({
                   className="rounded-[35px] border-[1px] border-black/20 p-4 flex flex-col items-center h-full"
                   style={{ background: cardBg }}
                 >
-                  <div className={`${className} rounded-full flex items-center justify-center`}>
-                    <img
-                      src={it.image}
-                      alt={label(it)}
-                      className="rounded-full object-contain transition-transform duration-200"
-                      loading="lazy"
-                    />
+                  <div className={`${className} rounded-full flex items-center justify-center overflow-hidden`}>
+                    {it.image ? (
+                      <img
+                        src={it.image}
+                        alt={label(it)}
+                        className="rounded-full object-contain transition-transform duration-200"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span className="text-4xl text-gray-400">🌸</span>
+                    )}
                   </div>
                   <p className={`mt-4 font-medium text-[#02A8B5] text-center ${isAr ? "text-[24px]" : "text-[20px] "}`}>
                     {label(it)}

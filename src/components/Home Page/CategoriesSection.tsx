@@ -47,13 +47,17 @@ export default function GiftIdeasSection({ isPage = false, link = "", en_title, 
               {items.map((it: any) => (
                 <Link key={it.id} href={`/filters/${isCategories ? "subCategory" : isOccasion ? "occasion" : "brand"}/${it?.slug}`} className="flex flex-col items-center group">
                   {/* circular badge behind image */}
-                  <div className="h-[150px] w-[150px] bg-[#f0e9df] rounded-full flex items-center justify-center">
-                    <img
-                      src={it.image || it.logo}
-                      alt={isAr ? it.ar_name : it.name}
-                      className="transition-transform duration-200 rounded-full"
-                      loading="lazy"
-                    />
+                  <div className="h-[150px] w-[150px] bg-[#f0e9df] rounded-full flex items-center justify-center overflow-hidden">
+                    {(it.image || it.logo) ? (
+                      <img
+                        src={it.image || it.logo}
+                        alt={isAr ? it.ar_name : it.name}
+                        className="transition-transform duration-200 rounded-full"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span className="text-4xl text-gray-400">🌸</span>
+                    )}
                   </div>
 
                   {/* caption */}
