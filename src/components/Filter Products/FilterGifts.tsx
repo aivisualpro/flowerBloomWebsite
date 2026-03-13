@@ -398,7 +398,7 @@ export default function FilterableFlowerGrid() {
               centeredSlides={false}
               grabCursor
               watchOverflow
-              loop={true}
+              loop={occasionOptions.length > 4}
               navigation={{ prevEl: ".oc-prev", nextEl: ".oc-next" }}
               onSwiper={(swiper) => {
                 setTimeout(() => {

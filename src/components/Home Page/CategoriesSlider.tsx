@@ -84,7 +84,7 @@ export default function GiftMomentsCarousel({
           speed={500}
           grabCursor
           watchOverflow
-          loop={true}
+          loop={items.length > 6}
           onBeforeInit={(swiper) => {
             // @ts-ignore
             swiper.params.navigation.prevEl = prevRef.current;

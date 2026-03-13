@@ -24,7 +24,7 @@ export default function HowToPlaceOrder() {
     {
       en_title: "Confirm and Go",
       ar_title: "أكِّد وانطلق",
-      en_subtitle: "We’ll take care of the rest!",
+      en_subtitle: "We'll take care of the rest!",
       ar_subtitle: "سنعتني بالباقي!",
       img: "/images/about/how-to-order (1).jpg",
     },

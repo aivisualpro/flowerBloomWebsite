@@ -4,7 +4,7 @@ export const giftDetail = {
     ar: "زهرة اليوم في المزهرية",
   },
   description: {
-    en: "Brighten someone’s day with the cheerful elegance of this get well soon bouquet, featuring a beautiful arrangement of yellow roses, white roses, and yellow baby roses wrapped in a sophisticated combination of dark green and cream wraps.",
+    en: "Brighten someone's day with the cheerful elegance of this get well soon bouquet, featuring a beautiful arrangement of yellow roses, white roses, and yellow baby roses wrapped in a sophisticated combination of dark green and cream wraps.",
     ar: "أنعش يوم شخص ما بأناقة مبهجة من هذا الباقة السريعة الشفاء، التي تضم ترتيبًا جميلًا من الورود الصفراء، الورود البيضاء، وورود الأطفال الصفراء ملفوفة بتوليفة أنيقة من الأقمشة الداكنة والخضراء.",
   },
   note: {

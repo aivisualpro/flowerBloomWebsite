@@ -340,3 +340,9 @@
 .MuiBottomNavigationAction-root.Mui-selected {
   color: #0FB4BB !important;
 }
+
+/* Hero slider mobile progress bar */
+@keyframes heroProgressBar {
+  from { width: 0; }
+  to { width: 100%; }
+}
