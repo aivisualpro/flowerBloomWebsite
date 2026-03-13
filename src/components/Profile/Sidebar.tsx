@@ -4,8 +4,7 @@ import SideItem from "./SideItem";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { GrTransaction } from "react-icons/gr";
 import { useTranslation } from "react-i18next";
-
-import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 export default function Sidebar({ tab, setTab }: { tab: string, setTab: any }) {
   const { i18n } = useTranslation();
@@ -13,15 +12,10 @@ export default function Sidebar({ tab, setTab }: { tab: string, setTab: any }) {
 
   const [loading, setLoading] = useState(false);
 
-  const navigate = useRouter();
-
-  const handleLogout = () => {
+  const handleLogout = async () => {
     setLoading(true);
     localStorage.removeItem("user");
-    setTimeout(() => {
-      setLoading(false);
-      navigate.push("/login");
-    }, 1000);
+    await signOut({ callbackUrl: "/login" });
   };
 
   return (
@@ -51,8 +45,6 @@ export default function Sidebar({ tab, setTab }: { tab: string, setTab: any }) {
           icon={<FiHeart />}
           label={`${langClass ? "المفضلة" : "Favorites"}`}
         />
-        {/* <SideItem active={tab === "invoices"} onClick={() => setTab("invoices")} icon={<FiFileText />} label={`${langClass ? "فواتيري" : "My Invoices"}`} />
-        <SideItem active={tab === "addresses"} onClick={() => setTab("addresses")} icon={<FiMapPin />} label={`${langClass ? "عناويني" : "My Addresses"}`} /> */}
       </nav>
 
       <button

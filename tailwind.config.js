@@ -13,9 +13,8 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)'
       },
       fontFamily: {
-        audiowide: ['var(--font-audiowide)', 'cursive'],
-        inter: ['var(--font-inter)', 'sans-serif'],
-        quicksand: ['var(--font-quicksand)', 'sans-serif'],
+        inter: ['var(--font-inter)', '"Inter"', 'sans-serif'],
+        sans: ['var(--font-inter)', '"Inter"', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

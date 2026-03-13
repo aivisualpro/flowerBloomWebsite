@@ -101,7 +101,7 @@ export default function PreviewModal({
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] text-center">
-                     <p className="text-[#8B5E3C] text-sm md:text-base font-semibold leading-relaxed" style={{ fontFamily: 'var(--font-quicksand)' }}>
+                     <p className="text-[#8B5E3C] text-sm md:text-base font-semibold leading-relaxed" style={{ fontFamily: 'var(--font-inter)' }}>
                        {recipients[0]?.cardMessage || "Your message..."}
                      </p>
                   </div>

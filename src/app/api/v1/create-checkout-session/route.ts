@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   try {
     const { products, userId } = await req.json();
 
-    const CLIENT_URL = process.env.CLIENT_URL || "https://crunchy-cookies.skynetsilicon.com";
+    const CLIENT_URL = process.env.CLIENT_URL || "https://www.graftonqatar.com";
 
     const lineItems = products.map((p: any) => ({
       price_data: {

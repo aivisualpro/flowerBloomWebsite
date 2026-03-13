@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { FiMail } from "react-icons/fi";
 import { CiLock } from "react-icons/ci";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-import ToastNotification from "../ToastNotification"; // <- path adjust if needed
-import { BASE_URL as API_BASE } from "@/api/config";
+import ToastNotification from "../ToastNotification";
+import GoogleSignInButton from "./GoogleSignInButton";
 
 export default function Login() {
   const navigate = useRouter();
@@ -18,7 +19,7 @@ export default function Login() {
 
   // Toast state
   const [toastOpen, setToastOpen] = useState(false);
-  const [toastType, setToastType] = useState("success"); // "success" | "error"
+  const [toastType, setToastType] = useState("success");
   const [toastTitle, setToastTitle] = useState("");
   const [toastMessage, setToastMessage] = useState("");
 
@@ -41,42 +42,23 @@ export default function Login() {
 
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ email, password }),
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
       });
 
-      const data = await res.json();
-      if (!res.ok || data?.success === false) {
-        throw new Error(data?.message || "Login failed");
+      if (result?.error) {
+        throw new Error("Invalid email or password");
       }
 
-      // Save to localStorage
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          token: data?.token || "",
-          user: data?.data || null,
-        })
-      );
-
-      // ✅ success toast
-      showToast(
-        "success",
-        "Welcome back!",
-        "You have logged in successfully."
-      );
-
-      // thoda delay, taake toast dikh jaye
+      showToast("success", "Welcome back!", "You have logged in successfully.");
       setTimeout(() => {
         navigate.replace("/");
       }, 500);
     } catch (e: any) {
       const msg = e.message || "Something went wrong";
       setErr(msg);
-      // ❌ error toast
       showToast("error", "Login failed", msg);
     } finally {
       setLoading(false);
@@ -169,7 +151,10 @@ export default function Login() {
             <div className="h-px flex-1 bg-gray-200" />
           </div>
 
-          <p className="text-center text-sm text-gray-600 mb-4">
+          {/* Google Sign-In */}
+          <GoogleSignInButton label="Sign in with Google" />
+
+          <p className="text-center text-sm text-gray-600 mt-5 mb-4">
             Don't Have an account{" "}
             <Link href="/register" className="text-teal-700 underline">
               Register

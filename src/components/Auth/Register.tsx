@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { FiMail } from "react-icons/fi";
 import { CiLock } from "react-icons/ci";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import ToastNotification from "../ToastNotification"; // <- path adjust if needed
+import ToastNotification from "../ToastNotification";
+import GoogleSignInButton from "./GoogleSignInButton";
 import { BASE_URL as API_BASE } from "@/api/config";
 
 export default function Register() {
@@ -25,7 +27,7 @@ export default function Register() {
 
   // Toast state
   const [toastOpen, setToastOpen] = useState(false);
-  const [toastType, setToastType] = useState("success"); // "success" | "error"
+  const [toastType, setToastType] = useState("success");
   const [toastTitle, setToastTitle] = useState("");
   const [toastMessage, setToastMessage] = useState("");
 
@@ -60,6 +62,7 @@ export default function Register() {
         dob: form.dob ? new Date(form.dob).toISOString() : undefined,
       };
 
+      // 1) Register via dashboard API
       const res = await fetch(`${API_BASE}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -72,29 +75,27 @@ export default function Register() {
         throw new Error(data?.message || "Registration failed");
       }
 
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          token: data?.token || "",
-          user: data?.data || null,
-        })
-      );
+      // 2) Auto sign-in via NextAuth after successful registration
+      const signInResult = await signIn("credentials", {
+        email: form.email,
+        password: form.password,
+        redirect: false,
+      });
 
-      // ✅ success toast
-      showToast(
-        "success",
-        "Welcome!",
-        "Your account has been created successfully."
-      );
+      if (signInResult?.error) {
+        // Registration succeeded but auto-login failed — redirect to login
+        showToast("success", "Account created!", "Please log in with your credentials.");
+        setTimeout(() => navigate.replace("/login"), 500);
+        return;
+      }
 
-      // thoda sa delay, taake toast visible rahe
+      showToast("success", "Welcome!", "Your account has been created successfully.");
       setTimeout(() => {
         navigate.replace("/");
       }, 500);
     } catch (e: any) {
       const msg = e.message || "Something went wrong";
       setErr(msg);
-      // ❌ error toast
       showToast("error", "Registration failed", msg);
     } finally {
       setLoading(false);
@@ -119,9 +120,21 @@ export default function Register() {
               </div>
             )}
 
+            {/* Google Sign-Up first for better UX */}
+            <div className="mt-6">
+              <GoogleSignInButton label="Sign up with Google" />
+            </div>
+
+            {/* Divider */}
+            <div className="flex items-center gap-4 my-6">
+              <div className="h-px flex-1 bg-gray-200" />
+              <span className="text-gray-400 text-sm">Or register with email</span>
+              <div className="h-px flex-1 bg-gray-200" />
+            </div>
+
             <form onSubmit={handleSubmit}>
               {/* First / Last Name */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     First Name
@@ -238,14 +251,7 @@ export default function Register() {
               </button>
             </form>
 
-            {/* Divider */}
-            <div className="flex items-center gap-4 my-6">
-              <div className="h-px flex-1 bg-gray-200" />
-              <span className="text-gray-400 text-sm">Or</span>
-              <div className="h-px flex-1 bg-gray-200" />
-            </div>
-
-            <p className="text-center text-sm text-gray-600">
+            <p className="text-center text-sm text-gray-600 mt-5">
               Already have an account?{" "}
               <Link href="/login" className="text-teal-700 underline">
                 Login
