@@ -111,24 +111,24 @@ export default function Navbar() {
     const onStorage = (e: StorageEvent) => {
       if (e.key === CART_KEY) setCartCount(readCartCount());
       if (e.key === "user") {
-          const stored = localStorage.getItem("user");
-          if (stored) {
-             const data = JSON.parse(stored);
-             setUser(data.user || data);
-          } else {
-             setUser(null);
-          }
+        const stored = localStorage.getItem("user");
+        if (stored) {
+          const data = JSON.parse(stored);
+          setUser(data.user || data);
+        } else {
+          setUser(null);
+        }
       }
     };
     const onCustomCart = () => setCartCount(readCartCount());
     const onCustomUser = () => {
-        const stored = localStorage.getItem("user");
-        if (stored) {
-             const data = JSON.parse(stored);
-             setUser(data.user || data);
-        } else {
-             setUser(null);
-        }
+      const stored = localStorage.getItem("user");
+      if (stored) {
+        const data = JSON.parse(stored);
+        setUser(data.user || data);
+      } else {
+        setUser(null);
+      }
     };
 
     window.addEventListener("storage", onStorage);
@@ -351,7 +351,7 @@ export default function Navbar() {
             <img
               src="/images/flower-bloom-logo.png"
               alt="Flower Bloom"
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-14 md:h-16 lg:h-20 w-auto object-contain"
             />
             <h1 className="text-[1rem] md:text-[1.4rem] lg:text-[1.2rem] xl:text-2xl font-bold text-primary uppercase tracking-wide">
               {t("logo")}
@@ -363,9 +363,8 @@ export default function Navbar() {
             {/* CART */}
             <Link
               href={user?._id ? `/cart/${user._id}` : "/login"}
-              className={`${
-                isCart ? "bg-primary" : "bg-transparent"
-              } relative overflow-visible border-b border-primary_light_mode hidden lg:flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-black shadow-sm ring-1 ring-[#0FB4BB1A] hover:bg-neutral-50 transition-colors`}
+              className={`${isCart ? "bg-primary" : "bg-transparent"
+                } relative overflow-visible border-b border-primary_light_mode hidden lg:flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-black shadow-sm ring-1 ring-[#0FB4BB1A] hover:bg-neutral-50 transition-colors`}
               aria-label={t("navbar.cart")}
             >
               {cartCount > 0 && (
@@ -385,14 +384,12 @@ export default function Navbar() {
               )}
 
               <PiShoppingCartSimpleLight
-                className={`text-[18px] ${
-                  isCart ? "text-white" : "text-primary"
-                }`}
+                className={`text-[18px] ${isCart ? "text-white" : "text-primary"
+                  }`}
               />
               <span
-                className={`font-medium ${
-                  isCart ? "text-white" : "text-black"
-                }`}
+                className={`font-medium ${isCart ? "text-white" : "text-black"
+                  }`}
               >
                 {t("navbar.cart")}
               </span>
@@ -400,20 +397,17 @@ export default function Navbar() {
 
             <Link
               href={user?._id ? `/member/${user._id}/wishlist` : "/login"}
-              className={`${
-                isWishlist ? "bg-primary" : "bg-transparent"
-              } border-b border-primary_light_mode hidden lg:flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-black shadow-sm ring-1 ring-[#0FB4BB1A] hover:bg-neutral-50 transition-colors`}
+              className={`${isWishlist ? "bg-primary" : "bg-transparent"
+                } border-b border-primary_light_mode hidden lg:flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-black shadow-sm ring-1 ring-[#0FB4BB1A] hover:bg-neutral-50 transition-colors`}
               aria-label={t("navbar.favorite")}
             >
               <FiHeart
-                className={`text-[16px] ${
-                  isWishlist ? "text-white" : "text-primary"
-                }`}
+                className={`text-[16px] ${isWishlist ? "text-white" : "text-primary"
+                  }`}
               />
               <span
-                className={`font-medium ${
-                  isWishlist ? "text-white" : "text-black"
-                }`}
+                className={`font-medium ${isWishlist ? "text-white" : "text-black"
+                  }`}
               >
                 {t("navbar.favorite")}
               </span>
@@ -421,9 +415,8 @@ export default function Navbar() {
 
             <Link
               href={user?._id ? `/member/${user._id}/profile` : "/login"}
-              className={`${
-                isMember ? "bg-primary" : "bg-transparent"
-              } border-b border-primary_light_mode hidden lg:flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-black shadow-sm ring-1 ring-[#0FB4BB1A] hover:bg-neutral-50 transition-colors`}
+              className={`${isMember ? "bg-primary" : "bg-transparent"
+                } border-b border-primary_light_mode hidden lg:flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-black shadow-sm ring-1 ring-[#0FB4BB1A] hover:bg-neutral-50 transition-colors`}
               aria-label={t("navbar.member")}
             >
               {user?.image ? (
@@ -435,15 +428,13 @@ export default function Navbar() {
                 />
               ) : (
                 <FiUser
-                  className={`text-[16px] ${
-                    isMember ? "text-white" : "text-primary"
-                  }`}
+                  className={`text-[16px] ${isMember ? "text-white" : "text-primary"
+                    }`}
                 />
               )}
               <span
-                className={`font-medium ${
-                  isMember ? "text-white" : "text-black"
-                }`}
+                className={`font-medium ${isMember ? "text-white" : "text-black"
+                  }`}
               >
                 {t("navbar.member")}
               </span>

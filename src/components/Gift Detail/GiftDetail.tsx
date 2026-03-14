@@ -515,32 +515,38 @@ const ProductDetail = () => {
             </div>
 
             {/* Description */}
-            <div className="description-filled-box mt-6">
-              <h5 className="text-white bg-primary inline-block rounded-lg px-4 py-2 text-xs mb-4">
-                {isAr ? "وصف" : "Description"}
+            <div className="mt-8 bg-neutral-50 border border-neutral-100 rounded-2xl p-6 shadow-sm">
+              <h5 className="text-primary font-semibold text-lg mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-6 bg-primary rounded-full"></span>
+                {isAr ? "الوصف" : "Description"}
               </h5>
               <div
-                className="text-black text-sm prose max-w-none"
+                className="text-gray-800 text-[15px] leading-relaxed prose max-w-none prose-p:text-gray-800 prose-headings:text-primary [&_*]:!text-gray-800"
                 dangerouslySetInnerHTML={{ __html: htmlDescription }}
               />
               {product?.note && (
-                <p className="text-sm mt-4">
-                  <span className="font-medium text-primary">
-                    {isAr ? "ملاحظة:" : "Note:"}
-                  </span>{" "}
-                  {product.note}
-                </p>
+                <div className="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
+                  <span className="text-amber-500 font-bold mt-0.5">ⓘ</span>
+                  <p className="text-sm text-amber-900 leading-relaxed">
+                    <span className="font-semibold text-amber-800">
+                      {isAr ? "ملاحظة: " : "Note: "}
+                    </span>
+                    {product.note}
+                  </p>
+                </div>
               )}
             </div>
 
             {arrangements.length > 0 && (
-              <div className="mt-4 text-gray-600">
-                <h6 className="font-medium text-xl mb-4">
-                  {isAr ? "يتضمن الترتيب:" : "Arrangement Includes:"}
+              <div className="mt-6 bg-neutral-50 border border-neutral-100 rounded-2xl p-6 shadow-sm">
+                <h6 className="text-primary font-semibold text-lg mb-4 flex items-center gap-2">
+                  <span className="w-1.5 h-6 bg-primary rounded-full"></span>
+                  {isAr ? "يتضمن الترتيب:" : "Arrangement Includes"}
                 </h6>
-                <ul className="list-disc pl-5">
+                <ul className="grid grid-cols-1 gap-3">
                   {arrangements.map((a, idx) => (
-                    <li key={idx} className="text-black text-sm mb-2">
+                    <li key={idx} className="flex items-center gap-3 text-gray-800 text-[15px] font-medium bg-white border border-neutral-200 rounded-lg p-3 shadow-sm hover:border-primary/40 transition-colors">
+                      <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
                       {isAr ? a?.ar || a?.en || a : a?.en || a?.ar || a}
                     </li>
                   ))}
