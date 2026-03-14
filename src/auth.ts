@@ -42,7 +42,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           image: user.image || null,
           firstName: user.firstName,
           lastName: user.lastName,
-          phone: user.phone,
+          phone: user.phone || "",
+          dob: user.dob || "",
           role: user.role,
           provider: "credentials",
         };
@@ -94,7 +95,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           user.id = dbUser._id.toString();
           (user as any).firstName = dbUser.firstName;
           (user as any).lastName = dbUser.lastName;
-          (user as any).phone = dbUser.phone;
+          (user as any).phone = dbUser.phone || "";
+          (user as any).dob = dbUser.dob || "";
           (user as any).role = dbUser.role;
           (user as any).provider = dbUser.provider;
 
@@ -117,6 +119,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.firstName = (user as any).firstName;
         token.lastName = (user as any).lastName;
         token.phone = (user as any).phone;
+        token.dob = (user as any).dob;
         token.role = (user as any).role;
         token.provider = (user as any).provider;
 
@@ -146,6 +149,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         (session.user as any).firstName = token.firstName;
         (session.user as any).lastName = token.lastName;
         (session.user as any).phone = token.phone;
+        (session.user as any).dob = token.dob;
         (session.user as any).role = token.role;
         (session.user as any).provider = token.provider;
         (session.user as any).legacyToken = token.legacyToken;

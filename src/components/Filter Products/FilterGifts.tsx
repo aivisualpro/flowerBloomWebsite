@@ -76,7 +76,7 @@ export default function FilterableFlowerGrid() {
 
   const navigate = useRouter();
   const { type, name } = useParams(); // /filters/:type/:name
-  const [sp] = useSearchParams(); // optional fallback
+  const sp = useSearchParams(); // optional fallback
 
   /* ----- BASE from pathname (priority) then query fallback ----- */
   const tKey = normalizeType(type);
@@ -88,11 +88,11 @@ export default function FilterableFlowerGrid() {
     recipient: tKey === "recipient" ? name || "" : "",
   };
   const baseFromQuery = {
-    q: sp.get("q") || "",
-    occasion: sp.get("occasion") || "",
-    subCategory: sp.get("subCategory") || "",
-    brand: sp.get("brand") || "",
-    recipient: sp.get("recipient") || "",
+    q: sp?.get("q") || "",
+    occasion: sp?.get("occasion") || "",
+    subCategory: sp?.get("subCategory") || "",
+    brand: sp?.get("brand") || "",
+    recipient: sp?.get("recipient") || "",
   };
 
   // For *search results only*, we'll use q and still keep others if you combine them.

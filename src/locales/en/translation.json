@@ -4,13 +4,11 @@
   "seeMore": "See more",
   "loadMore": "Load more",
   "addToCart": "Add to cart",
-
   "topBar": {
     "expressDelivery": "Express Delivery",
     "address": "No Address Hassle",
     "premium": "Premium Flowers & Gifts"
   },
-
   "navbar": {
     "menu": "Menu",
     "search": "Search",
@@ -18,34 +16,66 @@
     "favorite": "Favorite",
     "member": "Member"
   },
-
   "footer": {
     "explore": {
       "title": "Explore Flower Bloom",
       "links": [
-        { "label": "Flowers", "href": "/filters/subCategory/flowers-in-vases" },
-        { "label": "Cakes", "href": "/filters/subCategory/cakes" },
-        { "label": "Birthday", "href": "/filters/occasion/happy-birthday" },
-        { "label": "Anniversary", "href": "/filters/occasion/anniversary" },
-        { "label": "Occasions", "href": "/occasions" },
-        { "label": "Brands", "href": "/brands" }
+        {
+          "label": "Flowers",
+          "href": "/filters/subCategory/flowers-in-vases"
+        },
+        {
+          "label": "Cakes",
+          "href": "/filters/subCategory/cakes"
+        },
+        {
+          "label": "Birthday",
+          "href": "/filters/occasion/happy-birthday"
+        },
+        {
+          "label": "Anniversary",
+          "href": "/filters/occasion/anniversary"
+        },
+        {
+          "label": "Occasions",
+          "href": "/occasions"
+        },
+        {
+          "label": "Brands",
+          "href": "/brands"
+        }
       ]
     },
     "knowUs": {
       "title": "Get to know us",
       "links": [
-        { "label": "About Us", "href": "/about" },
-        { "label": "Partner with us", "href": "/partner-with-us" },
-        { "label": "Privacy Policy", "href": "/privacy-policy" }
+        {
+          "label": "About Us",
+          "href": "/about"
+        },
+        {
+          "label": "Partner with us",
+          "href": "/partner-with-us"
+        },
+        {
+          "label": "Privacy Policy",
+          "href": "/privacy-policy"
+        }
       ]
     },
     "customerService": {
       "title": "Customer Service",
       "links": [
-        { "label": "Contact Us", "href": "/contact" },
-        { "label": "FAQ's", "href": "/faq" }
+        {
+          "label": "Contact Us",
+          "href": "/contact"
+        },
+        {
+          "label": "FAQ's",
+          "href": "/faq"
+        }
       ]
     },
-    "copyright": "All Rights Reserved © 2025 Flower Bloom"
+    "copyright": "All Rights Reserved © 2026 Flower Bloom"
   }
 }

@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema(
     password: { type: String }, // optional for Google OAuth users
     gender: { type: String, enum: GENDER },
     role: { type: String, enum: ['ADMIN', 'CUSTOMER', 'SUPER_ADMIN'], default: 'CUSTOMER' },
-    dob: { type: Date },
+    dob: { type: String }, // stored as "YYYY-MM-DD" to avoid timezone shifts
     lastLoginAt: { type: Date },
     status: { type: String, enum: ["active", "blocked"], default: "active" },
     passwordChangedAt: { type: Date },

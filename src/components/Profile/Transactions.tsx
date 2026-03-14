@@ -64,7 +64,18 @@ interface PaymentRow {
 }
 
 export default function Transactions() {
-  const user = JSON.parse(localStorage.getItem("user") as string);
+  const [user, setUser] = useState<any>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("user");
+      if (raw) setUser(JSON.parse(raw) || null);
+    } catch {}
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const badgeBase = {
     display: "inline-flex",

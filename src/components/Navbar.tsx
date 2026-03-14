@@ -426,11 +426,20 @@ export default function Navbar() {
               } border-b border-primary_light_mode hidden lg:flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-black shadow-sm ring-1 ring-[#0FB4BB1A] hover:bg-neutral-50 transition-colors`}
               aria-label={t("navbar.member")}
             >
-              <FiUser
-                className={`text-[16px] ${
-                  isMember ? "text-white" : "text-primary"
-                }`}
-              />
+              {user?.image ? (
+                <img
+                  src={user.image}
+                  alt=""
+                  className="w-5 h-5 rounded-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <FiUser
+                  className={`text-[16px] ${
+                    isMember ? "text-white" : "text-primary"
+                  }`}
+                />
+              )}
               <span
                 className={`font-medium ${
                   isMember ? "text-white" : "text-black"

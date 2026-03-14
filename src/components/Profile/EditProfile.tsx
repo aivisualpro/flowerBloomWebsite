@@ -6,10 +6,12 @@ import Field from "./Field";
 import { useTranslation } from "react-i18next";
 import { updateUser } from "../../api/user";
 import { ClipLoader } from "react-spinners";
+import { useSession } from "next-auth/react";
 
 export default function EditProfile({ tab, setTab }: { tab: string; setTab: (tab: string) => void }) {
   const { i18n } = useTranslation();
   const langClass = i18n.language === "ar";
+  const { update: updateSession } = useSession();
 
   const [loading, setLoading] = useState(false);
 
@@ -21,8 +23,18 @@ export default function EditProfile({ tab, setTab }: { tab: string; setTab: (tab
     phone: "",
   });
 
-  const { user } = JSON.parse(localStorage.getItem("user") as string);
+  const [user, setUser] = useState<any>(null);
+  const [mounted, setMounted] = useState(false);
 
+  React.useEffect(() => {
+    try {
+      const raw = localStorage.getItem("user");
+      if (raw) setUser(JSON.parse(raw)?.user || null);
+    } catch {}
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !user) return null;
   const handleSubmit = async () => {
     setLoading(true);
     try {
@@ -36,24 +48,42 @@ export default function EditProfile({ tab, setTab }: { tab: string; setTab: (tab
 
       const response = await updateUser(payload, user._id);
       if (response?.success) {
-        setLoading(false);
-        // ✅ 1. Get old data (so we keep the token)
-        const oldData = JSON.parse(localStorage.getItem("user") as string);
+        // 1. Get old data (so we keep the token)
+        let oldData: any = { user: {} };
+        try {
+          const raw = localStorage.getItem("user");
+          if (raw) oldData = JSON.parse(raw) || { user: {} };
+        } catch {}
 
-        // ✅ 2. Replace only the "user" part with fresh data
+        // 2. Replace only the "user" part with fresh data, merging to keep all fields
+        const updatedUser = response.data || {};
         const newData = {
           ...oldData,
-          user: response.data, // this contains updated user info
+          user: {
+            ...oldData.user,
+            ...updatedUser,
+            _id: oldData.user._id, // keep the _id
+            image: oldData.user.image || updatedUser.image || "", // preserve image
+          },
         };
 
-        // ✅ 3. Save back to localStorage
+        // 3. Save back to localStorage
         localStorage.setItem("user", JSON.stringify(newData));
 
-        // ✅ 4. Switch tab or refresh UI
-        setTab("profile");
+        // 4. Also update the NextAuth session so AuthProvider doesn't overwrite
+        await updateSession({
+          firstName: newData.user.firstName,
+          lastName: newData.user.lastName,
+          phone: newData.user.phone,
+          dob: newData.user.dob,
+        });
 
+        // 5. Switch tab
+        setTab("profile");
       }
     } catch (error) {
+      console.error("Profile update error:", error);
+    } finally {
       setLoading(false);
     }
   };
@@ -98,7 +128,7 @@ export default function EditProfile({ tab, setTab }: { tab: string; setTab: (tab
             onChange={(e) =>
               setUserDetail({ ...userDetail, dob: e.target.value })
             }
-            defaultValue={user?.dob?.split("T")[0]}
+            defaultValue={user?.dob || ""}
           />
         </Field>
         <Field label={`${langClass ? "رقم الهاتف :" : "Phone Number :"}`}>
